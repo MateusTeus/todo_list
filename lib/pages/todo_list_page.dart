@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 
-
 class TodoListPage extends StatelessWidget {
-  TodoListPage({super.key});
-
-  final TextEditingController emailController = TextEditingController();
+  const TodoListPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,48 +12,49 @@ class TodoListPage extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              TextField(
-                controller: emailController,
-               decoration: InputDecoration(
-                 labelText: 'E-mail'
-               ),
-                onChanged: onChanged,
-                onSubmitted: onSubmitted,
+              Row(
+                children: [
+                  Expanded(
+                    child: TextField(
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Adicione uma tarefa',
+                        hintText: 'Ex. Estudar Flutter',
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 8),
+                  ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(7),
+                      ),
+                      backgroundColor: Color(0xff00d7f3),
+                      padding: EdgeInsets.all(14),
+                      //fixedSize: Size(100, 200)
+                    ),
+                    child: Icon(Icons.add, size: 30, color: Colors.white),
+                  ),
+                ],
               ),
-              ElevatedButton(onPressed: entrar, child: Text('Entrar'))
+              SizedBox(height: 16),
+              Row(children: [
+                Expanded(child: Text('Você possui 0 tarefas pendentes')),
+                SizedBox(width: 8),
+                ElevatedButton(onPressed: () {}, style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(7),
+                  ),
+                  backgroundColor: Color(0xff00d7f3),
+                  padding: EdgeInsets.all(14),
+                ), child: Text('Limpar tudo', style: TextStyle(color: Colors.white),), )
+              ],
+              ),
             ],
           ),
         ),
       ),
     );
   }
-
-  void entrar(){
-    String text = emailController.text;
-    print(text);
-    emailController.clear();
-  }
-
-  void onChanged(String text){
-    print(text);
-  }
-
-  void onSubmitted(String text){
-    print(text);
-  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
