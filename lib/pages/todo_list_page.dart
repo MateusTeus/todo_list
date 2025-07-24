@@ -14,12 +14,17 @@ class TodoListPage extends StatelessWidget {
             decoration: InputDecoration(
               labelText: 'Email',
               hintText: 'exemplo@exemplo.com',
-              //border: OutlineInputBorder()
+              border: OutlineInputBorder(),
               errorText: null,
               prefixText: 'R\$ ',
               suffixText: 'cm',
+              filled: true,
+              fillColor: Colors.purple.shade200,
+              hintStyle: TextStyle(
+                color: Colors.black,
+              ),
               labelStyle: TextStyle(
-                fontSize: 40
+                fontSize: 40,
               )
             ),
             //obscureText: true,
